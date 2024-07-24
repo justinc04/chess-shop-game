@@ -92,7 +92,6 @@ function renderPlayerMoney() {
 }
 
 function renderShop() {
-  let shopHTML = ``;
   currentShopItems = [...shopItems];
   let purchasedItems = currentTurn === 1 ? whitePurchasedItems : blackPurchasedItems;
 
@@ -103,16 +102,26 @@ function renderShop() {
 
   currentShopItems.sort((a, b) => a.price - b.price);
 
-  currentShopItems.forEach((item, index) => {
+  let shopHTML = ``;
+
+  currentShopItems.forEach((item) => {
+    let restrictionsHTML = ``;
+    item.restrictions?.forEach((restriction) => {
+      restrictionsHTML += `
+      <p class="item-restriction">
+        <span class="item-restriction-icon">&#10006</span> ${restriction}
+      </p>`;
+    });
+
     shopHTML += `
       <div class="item">
-        <h3>${item.name}</h3>
-        <h4>$${item.price}</h4>
+        <div class="item-header">
+          <h3>${item.name}</h3>
+          <h4>$${item.price}</h4>
+        </div>
         <p class="item-description">${item.description}</p>
-          <button id="${item.name}" class="buy-button">
-            Buy <span class="hotkey">[${index + 1}]</span>
-          </button>
-        
+        <div class="item-restriction-grid">${restrictionsHTML}</div>
+        <button id="${item.name}" class="buy-button">Buy</button>
       </div>
     `
   });
@@ -132,16 +141,7 @@ document.body.addEventListener('keydown', (key) => {
   if (key.code === 'Space') {
     key.preventDefault();
     endTurn();
-    return;
   }
-
-  currentShopItems.forEach((item, index) => {
-    if (key.code === `Digit${index + 1}`) {
-      if (buyItem(item.name)) {
-        document.getElementById(item.name).disabled = true;
-      }
-    }
-  });
 });
 
 document.getElementById('endTurn').addEventListener('click', () => {

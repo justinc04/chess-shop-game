@@ -6,7 +6,7 @@ body {
 }
 
 button {
-  padding: 10px 20px;
+  padding: 8px 40px;
   font-family: Poppins;
   border: none;
   font-weight: 700;
@@ -17,36 +17,39 @@ button {
 }
 
 h1 {
-  margin: 20px;
+  margin: 20px 0px;
 }
 
 h3 {
-  margin: 4px;
+  margin: 0px;
 }
 
 h4 {
+  margin: 0px;
   font-weight: 600;
-  margin: 4px;
+  font-size: 18px;;
 }
 
 .container {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   margin-bottom: 30px;
   align-items: center;
-  max-height: 100px;
+  max-height: 70px;
   gap: 5px;
 }
 
 .player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border: 1px solid;
   border-radius: 4px;
   opacity: 0.5;
   padding: 15px;
   margin: 5px;
   flex: 1;
-  max-width: 400px;
+  max-width: 300px;
   transition: border-width 0.15s;
 }
 
@@ -55,30 +58,50 @@ h4 {
   opacity: 1;
 }
 
-.player-money {
-  font-size: 18px;
-}
-
 .shop {
   padding: 10px;
-  margin: 20px 40px;
+  margin: 20px 30px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
-  gap: 10px;
+  grid-auto-rows: 250px;
+  gap: 15px;
 }
 
 .item {
   border: 1px solid;
   border-radius: 4px;
-  padding: 15px;
-  padding-bottom: 20px;
+  font-size: 15px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
 .item-description {
-  margin-bottom: 30px;
+  margin: 10px 0px;
+  text-align: left;
+}
+
+.item-restriction-grid {
+  margin: 0px;
+  display: grid;
+}
+
+.item-restriction {
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+  text-align: left;
+}
+
+.item-restriction-icon {
+  color: red;
+  margin-right: 2px;
 }
 
 .buy-button {
@@ -89,8 +112,4 @@ h4 {
   color: rgb(20, 20, 20, .5);
   background-color: rgb(230, 230, 230, .5);
   cursor: default;
-}
-
-.hotkey {
-  font-size: 12px;
 }
