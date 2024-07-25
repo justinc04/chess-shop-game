@@ -6,28 +6,28 @@ body {
 }
 
 button {
-  padding: 8px 40px;
-  font-family: Poppins;
-  border: none;
-  font-weight: 700;
-  color: rgb(20, 20, 20);
-  background-color: rgb(230, 230, 230);
+  background-color: transparent;
+  color: rgb(230, 230, 230);
+  border: 1px solid;
   border-radius: 4px;
+  font-family: Poppins;
   cursor: pointer;
 }
 
 h1 {
-  margin: 20px 0px;
+  margin: 15px 0px;
+}
+
+h2 {
+  margin: 0px;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 h3 {
   margin: 0px;
-}
-
-h4 {
-  margin: 0px;
   font-weight: 600;
-  font-size: 18px;;
+  font-size: 17px;
 }
 
 .container {
@@ -43,19 +43,15 @@ h4 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid;
-  border-radius: 4px;
-  opacity: 0.5;
   padding: 15px;
   margin: 5px;
   flex: 1;
   max-width: 300px;
-  transition: border-width 0.15s;
+  transition: border-width 0.1s;
 }
 
 .player.current {
   border-width: 4px;
-  opacity: 1;
 }
 
 .shop {
@@ -63,20 +59,25 @@ h4 {
   margin: 20px 30px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
-  grid-auto-rows: 250px;
+  grid-auto-rows: 200px;
   gap: 15px;
 }
 
 .item {
-  border: 1px solid;
-  border-radius: 4px;
   font-size: 15px;
   padding: 16px;
   display: flex;
   flex-direction: column;
+  transition: opacity 0.1s;
+}
+
+.item:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .item-header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -90,6 +91,7 @@ h4 {
 .item-restriction-grid {
   margin: 0px;
   display: grid;
+  width: 100%;
 }
 
 .item-restriction {
@@ -102,14 +104,4 @@ h4 {
 .item-restriction-icon {
   color: red;
   margin-right: 2px;
-}
-
-.buy-button {
-  margin-top: auto;
-}
-
-.buy-button:disabled {
-  color: rgb(20, 20, 20, .5);
-  background-color: rgb(230, 230, 230, .5);
-  cursor: default;
 }

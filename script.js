@@ -114,21 +114,20 @@ function renderShop() {
     });
 
     shopHTML += `
-      <div class="item">
+      <button id="${item.name}" class="item">
         <div class="item-header">
           <h3>${item.name}</h3>
-          <h4>$${item.price}</h4>
+          <h3>$${item.price}</h3>
         </div>
         <p class="item-description">${item.description}</p>
         <div class="item-restriction-grid">${restrictionsHTML}</div>
-        <button id="${item.name}" class="buy-button">Buy</button>
-      </div>
+      </button>
     `
   });
 
   document.querySelector('.shop').innerHTML = shopHTML;
 
-  document.querySelectorAll('.buy-button').forEach((button) => {
+  document.querySelectorAll('.item').forEach((button) => {
     button.addEventListener('click', () => {
       if (buyItem(button.id)) {
         button.disabled = true;
@@ -144,8 +143,10 @@ document.body.addEventListener('keydown', (key) => {
   }
 });
 
-document.getElementById('endTurn').addEventListener('click', () => {
-  endTurn();
+document.querySelectorAll('.player').forEach((button) => {
+  button.addEventListener('click', () => {
+    endTurn();
+  });
 });
 
 document.body.addEventListener('click', () => {
