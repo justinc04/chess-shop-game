@@ -1,11 +1,11 @@
 import { shopItems } from "./shop.js";
 
-let whiteMoney = 4;
-let blackMoney = 5;
+let whiteMoney = 0;
+let blackMoney = 1;
 let currentTurn = 1; // 1 for White, 2 for Black
 
-let whiteMoneyGain = 1;
-let blackMoneyGain = 1;
+let whiteMoneyGain = 2;
+let blackMoneyGain = 2;
 
 let whitePurchasedItems = [];
 let blackPurchasedItems = [];
@@ -16,13 +16,8 @@ function updateTurnIndicator() {
   const whitePlayer = document.getElementById('white');
   const blackPlayer = document.getElementById('black');
 
-  if (currentTurn === 1) {
-    whitePlayer.classList.add('current');
-    blackPlayer.classList.remove('current');
-  } else {
-    blackPlayer.classList.add('current');
-    whitePlayer.classList.remove('current');
-  }
+  whitePlayer.disabled = !whitePlayer.disabled;
+  blackPlayer.disabled = !blackPlayer.disabled;
 }
 
 export function endTurn() {
@@ -153,6 +148,5 @@ document.body.addEventListener('click', () => {
   document.activeElement.blur();
 });
 
-updateTurnIndicator();
 renderPlayerMoney();
 renderShop();

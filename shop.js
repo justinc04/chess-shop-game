@@ -40,13 +40,6 @@ export const shopItems = [
     description: "Capture a piece and all surrounding pawns"
   },
   {
-    name: "Royal Mint",
-    price: 9,
-    type: "permanent",
-    description: "Earn an extra $1 per turn",
-    function: "royalMint"
-  },
-  {
     name: "Super Pawn",
     price: 2,
     type: "turn",
@@ -65,7 +58,7 @@ export const shopItems = [
   },
   {
     name: "Promotion",
-    price: 5,
+    price: 6,
     type: "turn",
     description: "Promote a pawn on the last rank"
   }

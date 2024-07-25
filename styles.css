@@ -5,6 +5,10 @@ body {
   color: rgb(230, 230, 230);
 }
 
+hr {
+  max-width: 300px; 
+}
+
 button {
   background-color: transparent;
   color: rgb(230, 230, 230);
@@ -12,30 +16,32 @@ button {
   border-radius: 4px;
   font-family: Poppins;
   cursor: pointer;
+  transition: all 0.1s;
 }
 
-h1 {
-  margin: 15px 0px;
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 h2 {
   margin: 0px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 h3 {
   margin: 0px;
   font-weight: 600;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .container {
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin: 30px 0px;
   align-items: center;
-  max-height: 70px;
+  max-height: 80px;
   gap: 5px;
 }
 
@@ -43,14 +49,13 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 25px;
   margin: 5px;
   flex: 1;
   max-width: 300px;
-  transition: border-width 0.1s;
 }
 
-.player.current {
+.player:enabled {
   border-width: 4px;
 }
 
@@ -58,22 +63,17 @@ h3 {
   padding: 10px;
   margin: 20px 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
-  grid-auto-rows: 200px;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 220px);
+  grid-auto-rows: 220px;
   gap: 15px;
 }
 
 .item {
-  font-size: 15px;
-  padding: 16px;
+  font-size: 16px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
-  transition: opacity 0.1s;
-}
-
-.item:disabled {
-  opacity: 0.5;
-  cursor: default;
 }
 
 .item-header {
@@ -84,7 +84,7 @@ h3 {
 }
 
 .item-description {
-  margin: 10px 0px;
+  margin: 12px 0px;
   text-align: left;
 }
 
@@ -97,7 +97,7 @@ h3 {
 .item-restriction {
   padding: 0px;
   margin: 0px;
-  font-size: 12px;
+  font-size: 13px;
   text-align: left;
 }
 
