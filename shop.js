@@ -24,7 +24,8 @@ export const shopItems = [
     description: "Move twice in a row",
     restrictions: [
       "Castle out of check",
-      "Castle through check"
+      "Castle through check",
+      "Double move a bare king"
     ]
   },
   {
@@ -35,7 +36,7 @@ export const shopItems = [
   },
   {
     name: "Collateral",
-    price: 12,
+    price: 10,
     type: "turn",
     description: "Capture a piece and all surrounding pawns"
   },
@@ -47,19 +48,28 @@ export const shopItems = [
   },
   {
     name: "Teleport",
-    price: 10,
+    price: 11,
     type: "turn",
     description: "Move a piece to any empty square",
     restrictions: [
-      "Teleport the King",
+      "Teleport the king",
       "Checkmate",
       "Promotion"
     ]
   },
   {
     name: "Promotion",
-    price: 6,
+    price: 7,
     type: "turn",
     description: "Promote a pawn on the last rank"
+  },
+  {
+    name: "Jump",
+    price: 7,
+    type: "turn",
+    description: "Jump over one piece in the path of movement",
+    restrictions: [
+      "Capture"
+    ]
   }
 ];

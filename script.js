@@ -1,11 +1,11 @@
 import { shopItems } from "./shop.js";
 
+const earnOneCutoff = 25;
+const moneyCap = 35;
+
 let whiteMoney = 0;
 let blackMoney = 1;
 let currentTurn = 1; // 1 for White, 2 for Black
-
-let whiteMoneyGain = 2;
-let blackMoneyGain = 2;
 
 let whitePurchasedItems = [];
 let blackPurchasedItems = [];
@@ -21,8 +21,13 @@ function updateTurnIndicator() {
 }
 
 export function endTurn() {
-  const gain = currentTurn === 1 ? whiteMoneyGain : blackMoneyGain;
-  updatePlayerMoney(currentTurn, gain);
+  const currentMoney = currentTurn === 1 ? whiteMoney : blackMoney;
+  const gain = currentMoney < earnOneCutoff ? 2 : 1;
+
+  if (currentMoney < moneyCap) {
+    updatePlayerMoney(currentTurn, gain);
+  }
+
   currentTurn = currentTurn === 1 ? 2 : 1;
   updateTurnIndicator();
   renderShop();
