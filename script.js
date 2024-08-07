@@ -1,4 +1,5 @@
 import { shopItems } from "./shop.js";
+import { renderStartTime, runTimer, stopTimer } from "./timer.js";
 
 const earnOneCutoff = 25;
 const moneyCap = 35;
@@ -28,7 +29,9 @@ export function endTurn() {
     updatePlayerMoney(currentTurn, gain);
   }
 
+  stopTimer(currentTurn);
   currentTurn = currentTurn === 1 ? 2 : 1;
+  runTimer(currentTurn);
   updateTurnIndicator();
   renderShop();
 }
@@ -155,3 +158,4 @@ document.body.addEventListener('click', () => {
 
 renderPlayerMoney();
 renderShop();
+renderStartTime();

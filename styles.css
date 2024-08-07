@@ -105,3 +105,9 @@ h3 {
   color: red;
   margin-right: 2px;
 }
+
+.time {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0px 20px;
+}

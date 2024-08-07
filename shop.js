@@ -36,7 +36,7 @@ export const shopItems = [
   },
   {
     name: "Collateral",
-    price: 10,
+    price: 11,
     type: "turn",
     description: "Capture a piece and all surrounding pawns"
   },
