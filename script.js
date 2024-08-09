@@ -1,5 +1,5 @@
 import { shopItems } from "./shop.js";
-import { renderStartTime, runTimer, stopTimer } from "./timer.js";
+import { renderStartTime, runTimer, stopTimer, toggleTimer } from "./timer.js";
 
 const earnOneCutoff = 25;
 const moneyCap = 35;
@@ -80,15 +80,6 @@ function purchaseItem(item) {
   eval(item.function)?.();
 }
 
-function royalMint() {
-  if (currentTurn === 1) {
-    whiteMoneyGain++;
-  }
-  else {
-    blackMoneyGain++;
-  }
-}
-
 function renderPlayerMoney() {
   document.getElementById('money1').innerText = `$${whiteMoney}`;
   document.getElementById('money2').innerText = `$${blackMoney}`;
@@ -150,6 +141,10 @@ document.querySelectorAll('.player').forEach((button) => {
   button.addEventListener('click', () => {
     endTurn();
   });
+});
+
+document.getElementById('play').addEventListener('click', () => {
+  toggleTimer(currentTurn);
 });
 
 document.body.addEventListener('click', () => {

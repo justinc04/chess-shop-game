@@ -1,7 +1,8 @@
 let timeLabels = document.querySelectorAll(".time");
 
-const clockTime = 600;
+const clockTime = 900;
 const increment = 5;
+let clockRunning = false;
 
 let whiteTime = clockTime;
 let blackTime = clockTime;
@@ -30,6 +31,22 @@ export function stopTimer(player) {
   clearInterval(interval);
 }
 
+export function toggleTimer(player) {
+  if (clockRunning) {
+    clearInterval(interval);
+    document.querySelectorAll('.player').forEach(button => button.disabled = true);
+  }
+  else {
+    runTimer(player);
+    document.getElementById(player === 1 ? 'white' : 'black').disabled = false;
+  }
+
+  document.getElementById('play').innerHTML = document.getElementById('play').innerHTML === 'Play'
+    ? 'Pause'
+    : 'Play';
+  clockRunning = !clockRunning;
+}
+
 function setTime(player) {
   let time;
 
@@ -55,5 +72,3 @@ function pad(val) {
     return valString;
   }
 }
-
-runTimer(1);
